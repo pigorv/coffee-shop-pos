@@ -36,8 +36,7 @@ class StdoutReceiptPrinterTest {
         String expectedOutput = """
                 Receipt:
                 ----------------------------------------
-                Total:                                 0.00
-                """;
+                Total:                                   0.00""";
         assertEquals(expectedOutput, outContent.toString());
     }
 
