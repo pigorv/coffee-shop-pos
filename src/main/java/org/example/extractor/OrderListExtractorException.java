@@ -15,6 +15,6 @@ public class OrderListExtractorException extends RuntimeException {
             """;
 
     public OrderListExtractorException(String orderAsString) {
-        super();
+        super(String.format(EXCEPTION_MESSAGE, orderAsString));
     }
 }
