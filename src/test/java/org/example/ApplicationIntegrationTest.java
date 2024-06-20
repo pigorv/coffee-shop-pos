@@ -16,7 +16,7 @@ public class ApplicationIntegrationTest {
         System.setOut(new PrintStream(outContent));
     }
 
-    private static String normalizeString(String input) {
+    public static String normalizeString(String input) {
         return input.replaceAll("\r\n", "\n");
     }
 
@@ -50,7 +50,7 @@ public class ApplicationIntegrationTest {
                 bacon roll                               4.53   4.53
                 ----------------------------------------
                 Total:                                   8.08""";
-        assertEquals(expectedOutput, outContent.toString());
+        assertEquals(normalizeString(expectedOutput), normalizeString(outContent.toString()));
     }
 
     @Test
@@ -72,6 +72,6 @@ public class ApplicationIntegrationTest {
                 bacon roll                               4.53   4.53
                 ----------------------------------------
                 Total:                                   17.23""";
-        assertEquals(expectedOutput, outContent.toString());
+        assertEquals(normalizeString(expectedOutput), normalizeString(outContent.toString()));
     }
 }

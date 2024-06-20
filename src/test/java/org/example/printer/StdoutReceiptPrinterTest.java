@@ -12,6 +12,7 @@ import java.io.PrintStream;
 import java.math.BigDecimal;
 import java.util.List;
 
+import static org.example.ApplicationIntegrationTest.normalizeString;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class StdoutReceiptPrinterTest {
@@ -37,7 +38,7 @@ class StdoutReceiptPrinterTest {
                 Receipt:
                 ----------------------------------------
                 Total:                                   0.00""";
-        assertEquals(expectedOutput, outContent.toString());
+        assertEquals(normalizeString(expectedOutput), normalizeString(outContent.toString()));
     }
 
     @Test
@@ -68,7 +69,7 @@ class StdoutReceiptPrinterTest {
                                                 
                 ----------------------------------------
                 Total:                                   8.47""";
-        assertEquals(expectedOutput, outContent.toString());
+        assertEquals(normalizeString(expectedOutput), normalizeString(outContent.toString()));
     }
 
     @Test
@@ -110,6 +111,6 @@ class StdoutReceiptPrinterTest {
                                                 
                 ----------------------------------------
                 Total:                                   8.47""";
-        assertEquals(expectedOutput, outContent.toString());
+        assertEquals(normalizeString(expectedOutput), normalizeString(outContent.toString()));
     }
 }
