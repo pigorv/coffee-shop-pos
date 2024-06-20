@@ -22,12 +22,11 @@ public class ApplicationIntegrationTest {
                 "--order=\"large coffee, bacon roll\"".split(" ")
         );
 
-        String expectedOutput = """
-                Receipt:
-                large coffee                             3.55   3.55
-                bacon roll                               4.53   4.53
-                ----------------------------------------
-                Total:                                   8.08""";
+        String expectedOutput = "Receipt:\n" +
+                                "large coffee                             3.55   3.55\n" +
+                                "bacon roll                               4.53   4.53\n" +
+                                "----------------------------------------\n" +
+                                "Total:                                   8.08";
         assertEquals(expectedOutput, outContent.toString());
     }
 
@@ -37,15 +36,14 @@ public class ApplicationIntegrationTest {
                 "--order=\"large coffee with extra milk, bacon roll\"".split(" ")
         );
 
-        String expectedOutput = """
-                Receipt:
-                large coffee                             3.55   3.55
-                   Extras:\s
-                        extra milk                       0.32
-                                
-                bacon roll                               4.53   4.53
-                ----------------------------------------
-                Total:                                   8.08""";
+        String expectedOutput = "Receipt:\n" +
+                                "large coffee                             3.55   3.55\n" +
+                                "   Extras: \n" +
+                                "        extra milk                       0.32\n" +
+                                "\n" +
+                                "bacon roll                               4.53   4.53\n" +
+                                "----------------------------------------\n" +
+                                "Total:                                   8.08";
         assertEquals(expectedOutput, outContent.toString());
     }
 
@@ -55,19 +53,18 @@ public class ApplicationIntegrationTest {
                 "--order=\"large coffee with extra milk, small coffee, large coffee, medium coffee, freshly squeezed orange juice, bacon roll\"".split(" ")
         );
 
-        String expectedOutput = """
-                Receipt:
-                large coffee                             3.55   3.55
-                   Extras:\s
-                        extra milk                       0.32
-                                
-                small coffee                             2.55   2.55
-                large coffee                             3.55   3.55
-                medium coffee                            3.05   3.05
-                freshly squeezed orange juice            4.53   (-4.53)   0.00
-                bacon roll                               4.53   4.53
-                ----------------------------------------
-                Total:                                   17.23""";
+        String expectedOutput = "Receipt:\n" +
+                                "large coffee                             3.55   3.55\n" +
+                                "   Extras: \n" +
+                                "        extra milk                       0.32\n" +
+                                "\n" +
+                                "small coffee                             2.55   2.55\n" +
+                                "large coffee                             3.55   3.55\n" +
+                                "medium coffee                            3.05   3.05\n" +
+                                "freshly squeezed orange juice            4.53   (-4.53)   0.00\n" +
+                                "bacon roll                               4.53   4.53\n" +
+                                "----------------------------------------\n" +
+                                "Total:                                   17.23";
         assertEquals(expectedOutput, outContent.toString());
     }
 }

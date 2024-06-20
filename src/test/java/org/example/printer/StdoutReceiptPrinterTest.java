@@ -33,10 +33,9 @@ class StdoutReceiptPrinterTest {
         printer.print(receipt);
 
         // then
-        String expectedOutput = """
-                Receipt:
-                ----------------------------------------
-                Total:                                   0.00""";
+        String expectedOutput = "Receipt:\n" +
+                                "----------------------------------------\n" +
+                                "Total:                                   0.00";
         assertEquals(expectedOutput, outContent.toString());
     }
 
@@ -57,17 +56,16 @@ class StdoutReceiptPrinterTest {
         printer.print(receipt);
 
         // then
-        String expectedOutput = """
-                Receipt:
-                Apple                                    1.49   (-1.00)   0.49
-                Bread                                    2.99   2.99
-                Coffee                                   4.99   4.99
-                   Extras:\s
-                        Milk                             0.50
-                        Sugar                            0.25
-                                                
-                ----------------------------------------
-                Total:                                   8.47""";
+        String expectedOutput = "Receipt:\n" +
+                                "Apple                                    1.49   (-1.00)   0.49\n" +
+                                "Bread                                    2.99   2.99\n" +
+                                "Coffee                                   4.99   4.99\n" +
+                                "   Extras: \n" +
+                                "        Milk                             0.50\n" +
+                                "        Sugar                            0.25\n" +
+                                "\n" +
+                                "----------------------------------------\n" +
+                                "Total:                                   8.47";
         assertEquals(expectedOutput, outContent.toString());
     }
 
@@ -93,23 +91,22 @@ class StdoutReceiptPrinterTest {
         printer.print(receipt);
 
         // then
-        String expectedOutput = """
-                Receipt:
-                Apple                                    1.49   (-1.00)   0.49
-                   Extras:\s
-                        Milk                             0.55
-
-                Bread                                    2.99   2.99
-                   Extras:\s
-                        Cheese                           1.20
-
-                Coffee                                   4.99   4.99
-                   Extras:\s
-                        Milk                             0.50
-                        Sugar                            0.25
-                                                
-                ----------------------------------------
-                Total:                                   8.47""";
+        String expectedOutput = "Receipt:\n" +
+                                "Apple                                    1.49   (-1.00)   0.49\n" +
+                                "   Extras: \n" +
+                                "        Milk                             0.55\n" +
+                                "\n" +
+                                "Bread                                    2.99   2.99\n" +
+                                "   Extras: \n" +
+                                "        Cheese                           1.20\n" +
+                                "\n" +
+                                "Coffee                                   4.99   4.99\n" +
+                                "   Extras: \n" +
+                                "        Milk                             0.50\n" +
+                                "        Sugar                            0.25\n" +
+                                "\n" +
+                                "----------------------------------------\n" +
+                                "Total:                                   8.47";
         assertEquals(expectedOutput, outContent.toString());
     }
 }
