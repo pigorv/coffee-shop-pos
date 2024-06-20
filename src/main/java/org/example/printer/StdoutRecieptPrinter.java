@@ -35,7 +35,13 @@ public class StdoutRecieptPrinter implements ReceiptPrinter {
         if (!extras.isEmpty()) {
             System.out.println("   Extras: ");
             for (ExtraItem extra : extras) {
+
                 System.out.printf("        %-32s %.2f%n", extra.name(), extra.price());
+
+//                System.out.println("        " + extras.get(i).name() + "          " + extras.get(i).price());
+//                if (i < extras.size() - 1) {
+//                    System.out.print(", ");
+//                }
             }
             System.out.println();
         }
