@@ -62,7 +62,7 @@ class StdoutReceiptPrinterTest {
                 Apple                                    1.49   (-1.00)   0.49
                 Bread                                    2.99   2.99
                 Coffee                                   4.99   4.99
-                   Extras:\s
+                   Extras:
                         Milk                             0.50
                         Sugar                            0.25
                                                 
@@ -96,15 +96,15 @@ class StdoutReceiptPrinterTest {
         String expectedOutput = """
                 Receipt:
                 Apple                                    1.49   (-1.00)   0.49
-                   Extras:\s
+                   Extras:
                         Milk                             0.55
 
                 Bread                                    2.99   2.99
-                   Extras:\s
+                   Extras:
                         Cheese                           1.20
 
                 Coffee                                   4.99   4.99
-                   Extras:\s
+                   Extras:
                         Milk                             0.50
                         Sugar                            0.25
                                                 

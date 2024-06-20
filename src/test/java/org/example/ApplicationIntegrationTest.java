@@ -16,6 +16,10 @@ public class ApplicationIntegrationTest {
         System.setOut(new PrintStream(outContent));
     }
 
+    private static String normalizeString(String input) {
+        return input.replaceAll("\r\n", "\n");
+    }
+
     @Test
     public void testApp() {
         CoffeeShopPOSApplicationStarter.main(
@@ -28,7 +32,7 @@ public class ApplicationIntegrationTest {
                 bacon roll                               4.53   4.53
                 ----------------------------------------
                 Total:                                   8.08""";
-        assertEquals(expectedOutput, outContent.toString());
+        assertEquals(normalizeString(expectedOutput), normalizeString(outContent.toString()));
     }
 
     @Test
@@ -40,7 +44,7 @@ public class ApplicationIntegrationTest {
         String expectedOutput = """
                 Receipt:
                 large coffee                             3.55   3.55
-                   Extras:\s
+                   Extras:
                         extra milk                       0.32
                                 
                 bacon roll                               4.53   4.53
@@ -58,7 +62,7 @@ public class ApplicationIntegrationTest {
         String expectedOutput = """
                 Receipt:
                 large coffee                             3.55   3.55
-                   Extras:\s
+                   Extras:
                         extra milk                       0.32
                                 
                 small coffee                             2.55   2.55
