@@ -9,6 +9,11 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The {@code FreeBeveragePostOrderProcessor} class extends the {@link PostOrderProcessor} class and
+ * provides additional functionality to apply discounts to beverages in an order.
+ * It provides a free beverage for every set number of beverages ordered.
+ */
 public class FreeBeveragePostOrderProcessor extends PostOrderProcessor {
     private static final int N_FREE_BEVERAGE = 5;
 
@@ -16,6 +21,14 @@ public class FreeBeveragePostOrderProcessor extends PostOrderProcessor {
         super(delegate);
     }
 
+    /**
+     * Processes the provided {@link OrderList} and generates a {@link Receipt}.
+     * This method first delegates the order processing to the underlying {@link OrderProcessor}
+     * and then applies a discount to every fifth beverage in the order.
+     *
+     * @param order the {@link OrderList} to be processed.
+     * @return a {@link Receipt} containing the processed product items and the applied beverage discounts.
+     */
     @Override
     public Receipt processOrder(OrderList order) {
         Receipt receipt = super.delegate.processOrder(order);

@@ -15,6 +15,12 @@ import org.example.repository.ProductRepository;
 import java.math.BigDecimal;
 import java.util.List;
 
+
+/**
+ * The {@code ProductsAndExtrasBaseOrderProcessor} class implements the {@link OrderProcessor} interface and
+ * processes an {@link OrderList} into a {@link Receipt}.
+ * It retrieves product and extra information from the corresponding repositories to create detailed product and extra items.
+ */
 public class ProductsAndExtrasBaseOrderProcessor implements OrderProcessor {
     private final ProductRepository productRepository;
     private final ExtraRepository extraRepository;
@@ -25,6 +31,14 @@ public class ProductsAndExtrasBaseOrderProcessor implements OrderProcessor {
         this.extraRepository = extraRepository;
     }
 
+    /**
+     * Processes the provided {@link OrderList} and generates a {@link Receipt}.
+     * This method transforms the list of products in the order into detailed product items, each containing
+     * their respective extras.
+     *
+     * @param order the {@link OrderList} to be processed.
+     * @return a {@link Receipt} containing the processed product items and a total price of zero (as a placeholder).
+     */
     @Override
     public Receipt processOrder(OrderList order) {
         List<ProductItem> productItems = order.products().stream()

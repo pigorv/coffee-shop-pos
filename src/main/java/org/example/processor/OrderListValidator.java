@@ -10,6 +10,11 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
+/**
+ * The {@code OrderListValidator} class implements the {@link Validator} interface and
+ * provides functionality to validate an {@link OrderList}.
+ * It ensures that all products and extras in the order list exist in the corresponding repositories.
+ */
 public class OrderListValidator implements Validator<OrderList> {
     private final ProductRepository productRepository;
     private final ExtraRepository extraRepository;
@@ -19,6 +24,13 @@ public class OrderListValidator implements Validator<OrderList> {
         this.extraRepository = extraRepository;
     }
 
+    /**
+     * Validates the provided {@link OrderList}.
+     * Ensures that the order list is not null, contains products, and that all products and extras exist in the repositories.
+     *
+     * @param orderList the {@link OrderList} to be validated.
+     * @throws IllegalArgumentException if the order list is null, empty, or contains non-existent products or extras.
+     */
     @Override
     public void validate(OrderList orderList) {
         Objects.requireNonNull(orderList);

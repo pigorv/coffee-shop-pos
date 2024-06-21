@@ -7,7 +7,28 @@ import org.example.model.Receipt;
 import java.math.BigDecimal;
 import java.util.List;
 
-public class StdoutRecieptPrinter implements ReceiptPrinter {
+/**
+ * The {@code StdoutReceiptPrinter} class implements the {@link ReceiptPrinter} interface
+ * and provides functionality to print receipts to the standard output (stdout).
+ */
+public class StdoutReceiptPrinter implements ReceiptPrinter {
+
+    /**
+     * Prints the given receipt to the standard output.
+     * This method formats and prints the receipt in the following structure:
+     * <pre>
+     * Receipt:
+     * large coffee                             3.55   3.55
+     *    Extras:
+     *         extra milk                       0.32   (-0.32)   0.00
+     *
+     * bacon roll                               4.53   4.53
+     * ----------------------------------------
+     * Total:                                   7.76
+     * </pre>
+     *
+     * @param receipt the Receipt object containing the items to print
+     */
     @Override
     public void print(Receipt receipt) {
         printHeader();

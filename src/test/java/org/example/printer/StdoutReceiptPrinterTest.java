@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class StdoutReceiptPrinterTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-    private final StdoutRecieptPrinter printer = new StdoutRecieptPrinter();
+    private final StdoutReceiptPrinter printer = new StdoutReceiptPrinter();
 
     @BeforeEach
     public void setUpStreams() {
