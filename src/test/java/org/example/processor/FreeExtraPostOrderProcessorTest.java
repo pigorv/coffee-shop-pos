@@ -4,6 +4,7 @@ import org.example.model.ExtraItem;
 import org.example.model.ProductItem;
 import org.example.model.Receipt;
 import org.example.model.Type;
+import org.example.service.processor.FreeExtraPostOrderProcessor;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;

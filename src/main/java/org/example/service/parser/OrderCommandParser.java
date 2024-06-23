@@ -1,4 +1,4 @@
-package org.example.parser;
+package org.example.service.parser;
 
 import java.util.Optional;
 import java.util.regex.Matcher;

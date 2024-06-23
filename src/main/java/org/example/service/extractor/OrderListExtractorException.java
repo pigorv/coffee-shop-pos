@@ -1,4 +1,4 @@
-package org.example.extractor;
+package org.example.service.extractor;
 
 public class OrderListExtractorException extends RuntimeException {
     private static final String EXCEPTION_MESSAGE = """

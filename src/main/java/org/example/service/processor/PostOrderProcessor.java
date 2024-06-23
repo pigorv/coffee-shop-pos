@@ -1,4 +1,4 @@
-package org.example.processor;
+package org.example.service.processor;
 
 public abstract class PostOrderProcessor implements OrderProcessor {
     protected final OrderProcessor delegate;

@@ -1,11 +1,11 @@
 package org.example.repository;
 
-import org.example.entity.ExtraEntity;
 import org.example.entity.ProductEntity;
 import org.example.entity.TypeEntity;
 
 import java.math.BigDecimal;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * The {@code InMemoryProductRepository} class implements the {@link ProductRepository} interface
@@ -13,12 +13,14 @@ import java.util.Map;
  * It allows retrieving product entities by their name.
  */
 public class InMemoryProductRepository implements ProductRepository {
-    private static final Map<String, ProductEntity> STORAGE = Map.of(
-            "small coffee", new ProductEntity("small coffee", BigDecimal.valueOf(2.55), TypeEntity.DRINK),
-            "medium coffee", new ProductEntity("medium coffee", BigDecimal.valueOf(3.05), TypeEntity.DRINK),
-            "large coffee", new ProductEntity("large coffee", BigDecimal.valueOf(3.55), TypeEntity.DRINK),
-            "bacon roll", new ProductEntity("bacon roll", BigDecimal.valueOf(4.53), TypeEntity.SNACK),
-            "freshly squeezed orange juice", new ProductEntity("freshly squeezed orange juice", BigDecimal.valueOf(4.53), TypeEntity.DRINK)
+    // STORAGE can keep different names for the same product
+    private static final Map<Set<String>, ProductEntity> STORAGE = Map.of(
+            Set.of("small coffee"), new ProductEntity("small coffee", BigDecimal.valueOf(2.55), TypeEntity.DRINK),
+            Set.of("medium coffee"), new ProductEntity("medium coffee", BigDecimal.valueOf(3.05), TypeEntity.DRINK),
+            Set.of("large coffee"), new ProductEntity("large coffee", BigDecimal.valueOf(3.55), TypeEntity.DRINK),
+            Set.of("bacon roll"), new ProductEntity("bacon roll", BigDecimal.valueOf(4.53), TypeEntity.SNACK),
+            Set.of("freshly squeezed orange juice",
+                    "orange juice"), new ProductEntity("orange juice", BigDecimal.valueOf(4.53), TypeEntity.DRINK)
     );
 
     /**
@@ -30,6 +32,12 @@ public class InMemoryProductRepository implements ProductRepository {
      */
     @Override
     public ProductEntity findByName(String name) {
-        return STORAGE.get(name.toLowerCase());
+        // not optimal O(n) search
+        return STORAGE.entrySet().stream()
+                .filter(entry -> entry.getKey().contains(name))
+                .findFirst()
+                .map(Map.Entry::getValue)
+                // not found
+                .orElseThrow(NullPointerException::new);
     }
 }

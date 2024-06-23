@@ -8,6 +8,8 @@ import org.example.model.ProductItem;
 import org.example.model.Receipt;
 import org.example.repository.ExtraRepository;
 import org.example.repository.ProductRepository;
+import org.example.service.processor.OrderProcessor;
+import org.example.service.processor.ProductsAndExtrasBaseOrderProcessor;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;

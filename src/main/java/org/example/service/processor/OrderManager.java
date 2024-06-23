@@ -1,7 +1,8 @@
-package org.example.processor;
+package org.example.service.processor;
 
 import org.example.model.OrderList;
 import org.example.model.Receipt;
+import org.example.service.validator.OrderListValidator;
 
 /**
  * The {@code OrderManager} class is responsible for managing the order process,

@@ -1,7 +1,8 @@
-package org.example.processor;
+package org.example.service.processor;
 
 import org.example.repository.InMemoryExtraRepository;
 import org.example.repository.InMemoryProductRepository;
+import org.example.service.validator.OrderListValidator;
 
 /**
  * The {@code OrderManagerFactory} class provides a factory method to create instances of {@link OrderManager}.

@@ -1,4 +1,4 @@
-package org.example.processor;
+package org.example.service.validator;
 
 import org.example.model.Extra;
 import org.example.model.OrderList;

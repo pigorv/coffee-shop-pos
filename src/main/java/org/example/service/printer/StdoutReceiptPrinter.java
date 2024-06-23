@@ -1,4 +1,4 @@
-package org.example.printer;
+package org.example.service.printer;
 
 import org.example.model.ExtraItem;
 import org.example.model.ProductItem;

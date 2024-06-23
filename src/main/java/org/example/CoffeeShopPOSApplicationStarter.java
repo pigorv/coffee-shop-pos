@@ -1,13 +1,13 @@
 package org.example;
 
-import org.example.extractor.DefaultOrderListExtractor;
-import org.example.extractor.OrderListExtractor;
-import org.example.parser.CommandParser;
-import org.example.parser.OrderCommandParser;
-import org.example.printer.ReceiptPrinter;
-import org.example.printer.StdoutReceiptPrinter;
-import org.example.processor.OrderManager;
-import org.example.processor.OrderManagerFactory;
+import org.example.service.extractor.DefaultOrderListExtractor;
+import org.example.service.extractor.OrderListExtractor;
+import org.example.service.parser.CommandParser;
+import org.example.service.parser.OrderCommandParser;
+import org.example.service.printer.ReceiptPrinter;
+import org.example.service.printer.StdoutReceiptPrinter;
+import org.example.service.processor.OrderManager;
+import org.example.service.processor.OrderManagerFactory;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;

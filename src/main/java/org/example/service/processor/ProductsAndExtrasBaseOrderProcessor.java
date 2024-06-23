@@ -1,4 +1,4 @@
-package org.example.processor;
+package org.example.service.processor;
 
 import org.example.entity.ExtraEntity;
 import org.example.entity.ProductEntity;

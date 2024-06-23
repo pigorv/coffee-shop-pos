@@ -1,5 +1,6 @@
-package org.example.processor;
+package org.example.service.processor;
 
+import org.example.model.ExtraItem;
 import org.example.model.OrderList;
 import org.example.model.ProductItem;
 import org.example.model.Receipt;
@@ -50,17 +51,24 @@ public class FreeBeveragePostOrderProcessor extends PostOrderProcessor {
             }
 
             if (count != 0 && count % N_FREE_BEVERAGE == 0) {
+                List<ExtraItem> extras = createNewExtrasWithDiscounts(productItem.extras());
                 products.add(new ProductItem(productItem.name(),
                         productItem.type(),
                         productItem.price(),
                         // set 100% discount
                         productItem.price(),
-                        productItem.extras()));
+                        extras));
                 count = 0;
             } else {
                 products.add(productItem);
             }
         }
         return products;
+    }
+
+    private static List<ExtraItem> createNewExtrasWithDiscounts(List<ExtraItem> extras) {
+        return extras.stream()
+                .map(e -> new ExtraItem(e.name(), e.price(), e.price()))
+                .toList();
     }
 }

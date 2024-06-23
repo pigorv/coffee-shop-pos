@@ -4,12 +4,14 @@ import org.example.model.ExtraItem;
 import org.example.model.ProductItem;
 import org.example.model.Receipt;
 import org.example.model.Type;
+import org.example.service.processor.FreeBeveragePostOrderProcessor;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class FreeBeveragePostOrderProcessorTest {
     private FreeBeveragePostOrderProcessor freeBeveragePostOrderProcessor;
@@ -79,12 +81,12 @@ class FreeBeveragePostOrderProcessorTest {
                 order -> new Receipt(
                         List.of(
                                 new ProductItem("Apple", Type.SNACK, BigDecimal.valueOf(1.49), BigDecimal.ZERO, List.of()),
-                                new ProductItem("Coffee",Type.DRINK,  BigDecimal.valueOf(1.49), BigDecimal.ZERO, List.of()),
-                                new ProductItem("Coffee",Type.DRINK,  BigDecimal.valueOf(1.49), BigDecimal.ZERO, List.of()),
-                                new ProductItem("Coffee",Type.DRINK,  BigDecimal.valueOf(1.49), BigDecimal.ZERO, List.of()),
-                                new ProductItem("Coffee",Type.DRINK,  BigDecimal.valueOf(4.99), BigDecimal.ZERO, List.of()),
-                                new ProductItem("Coffee",Type.DRINK,  BigDecimal.valueOf(4.99), BigDecimal.ZERO, List.of()),
-                                new ProductItem("Coffee",Type.DRINK,  BigDecimal.valueOf(4.99), BigDecimal.ZERO, List.of())
+                                new ProductItem("Coffee", Type.DRINK, BigDecimal.valueOf(1.49), BigDecimal.ZERO, List.of()),
+                                new ProductItem("Coffee", Type.DRINK, BigDecimal.valueOf(1.49), BigDecimal.ZERO, List.of()),
+                                new ProductItem("Coffee", Type.DRINK, BigDecimal.valueOf(1.49), BigDecimal.ZERO, List.of()),
+                                new ProductItem("Coffee", Type.DRINK, BigDecimal.valueOf(4.99), BigDecimal.ZERO, List.of()),
+                                new ProductItem("Coffee", Type.DRINK, BigDecimal.valueOf(4.99), BigDecimal.ZERO, List.of()),
+                                new ProductItem("Coffee", Type.DRINK, BigDecimal.valueOf(4.99), BigDecimal.ZERO, List.of())
                         ), BigDecimal.ZERO
                 ));
 
@@ -160,6 +162,8 @@ class FreeBeveragePostOrderProcessorTest {
             }
             if (count != 0 && count % 5 == 0) {
                 assertEquals(item.price(), item.discount());
+                item.extras()
+                        .forEach(e -> assertEquals(e.price(), e.discount()));
             } else {
                 assertEquals(BigDecimal.ZERO, item.discount());
             }

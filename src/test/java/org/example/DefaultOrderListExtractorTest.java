@@ -1,8 +1,8 @@
 package org.example;
 
-import org.example.extractor.DefaultOrderListExtractor;
-import org.example.extractor.OrderListExtractor;
-import org.example.extractor.OrderListExtractorException;
+import org.example.service.extractor.DefaultOrderListExtractor;
+import org.example.service.extractor.OrderListExtractor;
+import org.example.service.extractor.OrderListExtractorException;
 import org.example.model.Extra;
 import org.example.model.OrderList;
 import org.example.model.Product;
@@ -61,6 +61,12 @@ class DefaultOrderListExtractorTest {
         Product secondProduct = result.products().get(1);
         assertEquals("black coffee", secondProduct.name());
         assertTrue(secondProduct.extras().isEmpty());
+    }
+
+    @Test
+    void testEmptyExtras() {
+        String input = "espresso with ";
+        assertThrows(OrderListExtractorException.class, () -> extractor.extractOrderList(input));
     }
 
     @Test

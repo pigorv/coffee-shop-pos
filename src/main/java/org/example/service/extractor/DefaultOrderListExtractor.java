@@ -1,4 +1,4 @@
-package org.example.extractor;
+package org.example.service.extractor;
 
 import org.example.model.Extra;
 import org.example.model.OrderList;
@@ -60,7 +60,7 @@ public class DefaultOrderListExtractor implements OrderListExtractor {
     }
 
     private List<Extra> extractExtras(String extras) {
-        if (extras.isEmpty()) {
+        if (extras.isEmpty() || extras.trim().isEmpty()) {
             throw new IllegalArgumentException();
         }
         return Arrays.stream(extras.split(EXTRAS_SEPARATOR))

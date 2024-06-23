@@ -1,4 +1,4 @@
-package org.example.parser;
+package org.example.service.parser;
 
 public class OrderCommandParsingException extends RuntimeException {
     private static final String ORDER_COMMAND_EXCEPTED_FORMAT =

@@ -1,4 +1,4 @@
-package org.example.extractor;
+package org.example.service.extractor;
 
 import org.example.model.OrderList;
 

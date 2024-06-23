@@ -1,4 +1,4 @@
-package org.example.processor;
+package org.example.service.processor;
 
 import org.example.model.OrderList;
 import org.example.model.ProductItem;
